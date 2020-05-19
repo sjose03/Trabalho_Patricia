@@ -32,37 +32,36 @@ public class Exer3 {
                     filaAtend.enqueue(pacienteCadastrado);
                     System.out.println("Paciente " + pacienteCadastrado + " cadastrado");
                     break;
-                case 2:
-                    System.out.println(filaAtend.dequeue());
-//                case 2: if (!filaAtend.isEmpty()){
-//                    Paciente pacienteAtendido =  new Paciente(filaAtend.dequeue());
-//                    System.out.println("Paciente a ser atendido " + pacienteAtendido);
-//                    System.out.println("Esta sentindo falta de ar?  \n 1 - Sim 2 - Não");
-//                    pergunta1 = le.nextInt();
-//                    System.out.println("Esta tendo tosse seca? \n 1 - Sim 2 - Não");
-//                    pergunta2 = le.nextInt();
-//                    System.out.println("Esta tendo febre? \n 1 - Sim 2 - Não");
-//                    pergunta3 = le.nextInt();
-//                    if(pergunta1 == 1 && pergunta3 == 1 ) {
-//                        if(posicao >= vagas){
-//                            System.out.println("Não ha vagas ");
-//                            filaInter.enqueue(pacienteAtendido);
-//                        }
-//                        else {
-//                            leitos[posicao] = pacienteAtendido;
-//                            posicao++;
-//                            System.out.println("Paciente " + pacienteAtendido + " internado");
-//                        }
-//                    }else   {
-//                        System.out.println("O paciente " +  pacienteAtendido + " foi liberado");
-//                    }
-//                }
-//                    break;
+                case 2: if (!filaAtend.isEmpty()){
+                    Paciente pacienteAtendido =  filaAtend.dequeue();
+                    System.out.println("Paciente a ser atendido " + pacienteAtendido);
+                    System.out.println("Esta sentindo falta de ar?  \n 1 - Sim 2 - Não");
+                    pergunta1 = le.nextInt();
+                    System.out.println("Esta tendo tosse seca? \n 1 - Sim 2 - Não");
+                    pergunta2 = le.nextInt();
+                    System.out.println("Esta tendo febre? \n 1 - Sim 2 - Não");
+                    pergunta3 = le.nextInt();
+                    if(pergunta1 == 1 && pergunta3 == 1 ) {
+                        if(posicao >= vagas){
+                            System.out.println("Não ha vagas ");
+                            filaInter.enqueue(pacienteAtendido);
+                        }
+                        else {
+                            leitos[posicao] = pacienteAtendido;
+                            posicao++;
+                            System.out.println("Paciente " + pacienteAtendido + " internado");
+                        }
+                    }else   {
+                        System.out.println("O paciente " +  pacienteAtendido + " foi liberado");
+                    }
+                }
+                    break;
                 case 3:
                     System.out.println("Insira o CPF do paciente a ser buscado....");
                     cpf = le.nextInt();
                     for (int i=0 ; i < posicao; i++){
                         if(leitos[i].cpf == cpf){
+                            System.out.println("O paciente " + leitos[i] + " foi removido do leito " + (i+1));
                             if(!filaInter.isEmpty()){
                                 leitos[i] = filaInter.dequeue();
                             }

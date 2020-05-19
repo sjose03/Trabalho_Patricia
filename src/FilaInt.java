@@ -21,6 +21,7 @@ public class FilaInt {
 
     public void enqueue (Paciente paciente) {
         No novo = new No();
+        novo.paciente = paciente;
         novo.prox = null;
         if (isEmpty())
             ini = novo;
